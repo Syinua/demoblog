@@ -1,0 +1,130 @@
+#sliders {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.slider {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    background-color: #33C3F0;
+}
+
+.slider li {
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.slider li:first-child {
+    display: block;
+}
+
+.slide .title a {
+    font-weight: 900;
+    font-size: 2em;
+    color: #FFF;
+    text-decoration: none;
+}
+.slide .author {
+    color: #FFF;
+    font-size: 1.1em;
+}
+
+.slide .comment {
+    padding: 5px;
+    background-color: #33C3F0;
+    color: #FFF;
+}
+
+/* Shared
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button {
+    border-radius: 100px;
+}
+
+/* Sections
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.section {
+    padding-top: 2%;
+    /*text-align: center;*/
+}
+
+.section-heading, .section-description {
+    margin-bottom: 1.2rem;
+}
+
+.post {
+    margin: 0 0 20px;
+}
+
+.post .title {
+    font-size: 1.5em;
+    border-bottom: 1px solid #C9E0ED;
+}
+
+.post .title a {
+    color: #555;
+    text-decoration: none;
+}
+
+.post .author {
+    font-size: 0.8em;
+    color: #888;
+    margin: 0 0 5px;
+}
+
+.post .nav {
+    -moz-border-radius: 7px;
+    padding: 5px;
+    background: #EFFDFF;
+}
+
+.comment {
+    -moz-border-radius: 7px;
+    padding: 10px;
+    background: #F5F5F5;
+    margin: 5px 0;
+}
+
+.comment .content {
+    margin: 10px 0;
+}
+
+.comment .author {
+    margin: 5px 0;
+    padding: 0 0 3px;
+    border-bottom: 1px solid #DDD;
+}
+
+.comment .time {
+    color: #888;
+    font-size: 0.8em;
+}
+
+
+.error{
+    color: red;
+    margin-left: 20px;
+}
+
+/* Bigger than 750 */
+@media (min-width: 750px) {
+    .section {
+        /*padding: 14rem 0 15rem;*/
+    }
+
+    .section-description {
+        max-width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Bigger than 1000 */
+@media (min-width: 1000px) {
+    .section {
+        /*padding: 20rem 0 19rem;*/
+    }
+}

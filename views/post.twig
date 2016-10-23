@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+{% block body %}
+    <div class="section">
+        <div class="post">
+            <div class="title">
+                <a href="/post/view/id/{{ post.id }}">{{ post.title }}</a>
+            </div>
+            <div class="author">
+                posted by {{ post.author }} on {{ post.create_time|date("F jS \\a\\t g:ia") }}
+            </div>
+            <div class="content">
+                {{ post.content }}
+            </div>
+            <div class="nav">
+                <a href="/post/view/id/{{ post.id }}">Permalink</a> |
+                <a href="/post/view/id/{{ post.id }}">Comments ({{ post.comments }})</a> |
+                Last updated on {{ post.create_time|date("F jS \\a\\t g:ia") }}
+            </div>
+        </div>
+    </div>
+
+    {% for comment in comments %}
+        <div class="comment">
+            <div class="author">{{ comment.author }} says:</div>
+            <div class="time">{{ comment.create_time|date("F jS \\a\\t g:ia") }}</div>
+            <div class="content">{{ comment.content }}</div>
+        </div>
+    {% endfor %}
+
+    <h5>Leave a Comment</h5>
+    <form id="commentForm" action="/comment/create" method="post">
+        <div class="row">
+            <div class="six columns">
+                <label for="txtAuthor">Author: <span id="authorError" class="error"></span></label>
+                <input id="txtAuthor" class="u-full-width" type="text" name="author" required/>
+            </div>
+        </div>
+        <label for="txtContent">Content: <span class="error"></span></label>
+        <textarea id="txtContent" class="u-full-width" name="content" required></textarea>
+        <input type="hidden" name="post_id" value="{{ post.id }}"/>
+        <input class="submit" type="submit" value="Submit"/>
+        <a class="button" href="/">Return</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{
+  "name": "Demo Blog",
+  "description": "Test task for PHP Back-End developer",
+  "authors": [
+    {
+      "name": "Evgeniy Cheremisov",
+      "email": "syinua@gmail.com",
+      "homepage": "http://www.syinua.com/"
+    }
+  ],
+  "config": {
+    "process-timeout": 3600,
+    "vendor-dir": "vendor/"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "bower-asset/fontawesome": "4.4.*",
+    "bower-asset/skeleton": "*",
+    "twig/twig":"1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Controller\\":"controllers/",
+      "Model\\":"models/"
+    }
+  }
+}

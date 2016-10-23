@@ -1,0 +1,59 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div id="sliders">
+        <ul class="slider" id="slider">
+            {% for slider in sliders %}
+                <li>
+                    <div class="slide">
+                        <div class="title">
+                            <a href="/post/view/id/{{ slider.id }}">{{ slider.title }}</a>
+                        </div>
+                        <div class="author">
+                            posted by {{ slider.author }} on {{ slider.create_time|date("F jS \\a\\t g:ia") }}
+                        </div>
+                        <div class="comment">
+                            comments ({{ slider.comments }})
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="section">
+    {% for post in posts %}
+    <div class="post">
+        <div class="title">
+            <a href="/post/view/id/{{ post.id }}">{{ post.title }}</a>
+        </div>
+        <div class="author">
+            posted by {{ post.author }} on {{ post.create_time|date("F jS \\a\\t g:ia") }}
+        </div>
+        <div class="content">
+            {{ post.content | slice(0, 100) }}...
+        </div>
+        <div class="nav">
+            <a href="/post/view/id/{{ post.id }}">Permalink</a> |
+            <a href="/post/view/id/{{ post.id }}">Comments ({{ post.comments }})</a> |
+            Last updated on {{ post.create_time|date("F jS \\a\\t g:ia") }}
+        </div>
+        {% endfor %}
+    </div>
+    <h5>Create Post</h5>
+    <form id="postForm" action="/post/create" method="post">
+        <div class="row">
+            <div class="six columns">
+                <label for="txtTitle">Title: <span class="error"></span></label>
+                <input id="txtTitle" class="u-full-width" type="text" name="title" value="{{ values.title }}" required/>
+            </div>
+            <div class="six columns">
+                <label for="txtAuthor">Author: <span id="authorError" class="error"></span></label>
+                <input id="txtAuthor" class="u-full-width" type="text" name="author" value="{{ values.author }}"
+                       required/>
+            </div>
+        </div>
+        <label for="txtContent">Content: <span class="error"></span></label>
+        <textarea id="txtContent" class="u-full-width" name="content" required>{{ values.content }}</textarea>
+        <input class="submit" type="submit" value="Submit" />
+    </form>
+{% endblock %}

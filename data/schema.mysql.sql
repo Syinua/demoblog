@@ -1,0 +1,20 @@
+CREATE TABLE tbl_posts
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(128) NOT NULL,
+  content TEXT NOT NULL,
+  create_time INTEGER,
+  update_time INTEGER,
+  author VARCHAR(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE tbl_comments
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  content TEXT NOT NULL,
+  create_time INTEGER,
+  author VARCHAR(128) NOT NULL,
+  post_id INTEGER NOT NULL,
+  CONSTRAINT FK_comment_post FOREIGN KEY (post_id)
+  REFERENCES tbl_posts (id) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
