@@ -1,4 +1,4 @@
-Demo Blog just created for fun 
+Demo Blog
 ========================
 
 ## Installation
@@ -9,3 +9,6 @@ composer update
 ```
 ## Restoring Database Backup 
 `mysqldump - /data/dumpDB.sql`
+
+## Config for database connection
+`/config/config.ini`
