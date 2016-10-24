@@ -129,7 +129,7 @@ class FrontController
      * @param $link
      * @param $array
      */
-    public function render($link, $array = null)
+    public function render($link, $array = [])
     {
         $loader = new \Twig_Loader_Filesystem( realpath('../views'));
         $twig = new \Twig_Environment($loader, array(

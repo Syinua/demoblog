@@ -16,7 +16,7 @@ class PostController implements IController
 
     public function viewAction()
     {
-        if (($id = $this->fc->getParams()->id)) {
+        if (is_int($id = $this->fc->getParams()->id)) {
             $post = new Post();
             $comment = new Comment();
             $comment->post_id = $id;
